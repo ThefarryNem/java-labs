@@ -2,20 +2,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductManager {
-	private List<Product> products;
+	private List<StoreProduct> products;
 
 	public ProductManager() {
 		products = new ArrayList<>();
 	}
 
-	public void addProduct(Product p) {
+	public void addProduct(StoreProduct p) {
 		products.add(p);
 	}
 
 	// a) Поиск по наименованию
-	public List<Product> findByName(String name) {
-		List<Product> result = new ArrayList<>();
-		for (Product p : products) {
+	public List<StoreProduct> findByName(String name) {
+		List<StoreProduct> result = new ArrayList<>();
+		for (StoreProduct p : products) {
 			if (p.getName().equalsIgnoreCase(name)) {
 				result.add(p);
 			}
@@ -24,9 +24,9 @@ public class ProductManager {
 	}
 
 	// b) Поиск по наименованию и цене
-	public List<Product> findByNameAndPrice(String name, double maxPrice) {
-		List<Product> result = new ArrayList<>();
-		for (Product p : products) {
+	public List<StoreProduct> findByNameAndPrice(String name, double maxPrice) {
+		List<StoreProduct> result = new ArrayList<>();
+		for (StoreProduct p : products) {
 			if (p.getName().equalsIgnoreCase(name) && p.getPrice() <= maxPrice) {
 				result.add(p);
 			}
@@ -35,9 +35,9 @@ public class ProductManager {
 	}
 
 	// c) Поиск по сроку хранения
-	public List<Product> findByShelfLifeGreaterThan(int minShelfLife) {
-		List<Product> result = new ArrayList<>();
-		for (Product p : products) {
+	public List<StoreProduct> findByShelfLifeGreaterThan(int minShelfLife) {
+		List<StoreProduct> result = new ArrayList<>();
+		for (StoreProduct p : products) {
 			if (p.getShelfLife() > minShelfLife) {
 				result.add(p);
 			}
@@ -46,8 +46,8 @@ public class ProductManager {
 	}
 
 	// Вывод списка
-	public void printList(List<Product> list) {
-		for (Product p : list) {
+	public void printList(List<StoreProduct> list) {
+		for (StoreProduct p : list) {
 			System.out.println(p);
 		}
 	}
