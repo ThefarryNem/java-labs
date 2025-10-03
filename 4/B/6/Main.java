@@ -42,8 +42,13 @@ public class Main {
             if (obj == null || getClass() != obj.getClass()) return false;
             ТЗ тз = (ТЗ) obj;
             return этажность == тз.этажность &&
+<<<<<<< HEAD
                     Double.compare(тз.площадь, площадь) == 0 &&
                     описание.equals(тз.описание);
+=======
+                   Double.compare(тз.площадь, площадь) == 0 &&
+                   описание.equals(тз.описание);
+>>>>>>> 3a86768161b340c01f45c2473572f862776e0f50
         }
 
         @Override

@@ -1,7 +1,11 @@
 import java.util.Arrays;
 import java.util.Objects;
 
+<<<<<<< HEAD
 // ÐšÐ»Ð°ÑÑ Ð›ÐµÐ¿ÐµÑÑ‚Ð¾Ðº
+=======
+// Êëàññ Ëåïåñòîê
+>>>>>>> 3a86768161b340c01f45c2473572f862776e0f50
 class Petal {
     private String color;
 
@@ -32,10 +36,17 @@ class Petal {
     }
 }
 
+<<<<<<< HEAD
 // ÐšÐ»Ð°ÑÑ Ð‘ÑƒÑ‚Ð¾Ð½
 class Bud {
     private Petal[] petals;
     private boolean isBloomed; // Ñ†Ð²ÐµÑ‚ÐµÑ‚ Ð¸Ð»Ð¸ Ð½ÐµÑ‚
+=======
+// Êëàññ Áóòîí
+class Bud {
+    private Petal[] petals;
+    private boolean isBloomed; // öâåòåò èëè íåò
+>>>>>>> 3a86768161b340c01f45c2473572f862776e0f50
 
     public Bud(Petal[] petals) {
         this.petals = petals;
@@ -53,7 +64,11 @@ class Bud {
     public String getColor() {
         if (petals.length > 0)
             return petals[0].getColor();
+<<<<<<< HEAD
         return "ÐÐµÑ‚ Ð»ÐµÐ¿ÐµÑÑ‚ÐºÐ¾Ð²";
+=======
+        return "Íåò ëåïåñòêîâ";
+>>>>>>> 3a86768161b340c01f45c2473572f862776e0f50
     }
 
     public boolean isBloomed() {
@@ -83,7 +98,11 @@ class Bud {
     }
 }
 
+<<<<<<< HEAD
 // ÐšÐ»Ð°ÑÑ Ð Ð¾Ð·Ð°
+=======
+// Êëàññ Ðîçà
+>>>>>>> 3a86768161b340c01f45c2473572f862776e0f50
 class Rose {
     private String name;
     private Bud bud;
@@ -93,6 +112,7 @@ class Rose {
         this.bud = bud;
     }
 
+<<<<<<< HEAD
     // ÐœÐµÑ‚Ð¾Ð´ Ñ€Ð°ÑÑ†Ð²ÐµÑÑ‚Ð¸ â€” Ð¿Ñ€Ð¸Ð½Ð°Ð´Ð»ÐµÐ¶Ð¸Ñ‚ ÐºÐ»Ð°ÑÑÑƒ Ð Ð¾Ð·Ð°, Ñ‚.Ðº. ÑƒÐ¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ Ð±ÑƒÑ‚Ð¾Ð½Ð¾Ð¼
     public void bloom() {
         bud.bloom();
@@ -108,6 +128,23 @@ class Rose {
     // ÐœÐµÑ‚Ð¾Ð´ Ð²Ñ‹Ð²ÐµÑÑ‚Ð¸ Ñ†Ð²ÐµÑ‚ Ð±ÑƒÑ‚Ð¾Ð½Ð° â€” Ð¿Ñ€Ð¸Ð½Ð°Ð´Ð»ÐµÐ¶Ð¸Ñ‚ Ð Ð¾Ð·Ðµ, Ð½Ð¾ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ Ð¼ÐµÑ‚Ð¾Ð´ Ð±ÑƒÑ‚Ð¾Ð½Ð°
     public void printBudColor() {
         System.out.println("Ð¦Ð²ÐµÑ‚ Ð±ÑƒÑ‚Ð¾Ð½Ð°: " + bud.getColor());
+=======
+    // Ìåòîä ðàñöâåñòè — ïðèíàäëåæèò êëàññó Ðîçà, ò.ê. óïðàâëÿåò áóòîíîì
+    public void bloom() {
+        bud.bloom();
+        System.out.println(name + " ðàñöâåëà!");
+    }
+
+    // Ìåòîä çàâÿòü — ïðèíàäëåæèò êëàññó Ðîçà
+    public void wither() {
+        bud.wither();
+        System.out.println(name + " çàâÿëà!");
+    }
+
+    // Ìåòîä âûâåñòè öâåò áóòîíà — ïðèíàäëåæèò Ðîçå, íî èñïîëüçóåò ìåòîä áóòîíà
+    public void printBudColor() {
+        System.out.println("Öâåò áóòîíà: " + bud.getColor());
+>>>>>>> 3a86768161b340c01f45c2473572f862776e0f50
     }
 
     @Override
@@ -130,6 +167,7 @@ class Rose {
     }
 }
 
+<<<<<<< HEAD
 // ÐŸÑ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ
 public class Main {
     public static void main(String[] args) {
@@ -145,5 +183,22 @@ public class Main {
         System.out.println(rose); // Ð¡Ñ‚Ð°Ñ‚ÑƒÑ
         rose.wither();         // Ð—Ð°Ð²ÑÑ‚ÑŒ
         System.out.println(rose); // Ð¡Ñ‚Ð°Ñ‚ÑƒÑ Ð¿Ð¾ÑÐ»Ðµ ÑƒÐ²ÑÐ´Ð°Ð½Ð¸Ñ
+=======
+// Ïðèëîæåíèå
+public class Main {
+    public static void main(String[] args) {
+        Petal p1 = new Petal("Êðàñíûé");
+        Petal p2 = new Petal("Êðàñíûé");
+        Petal[] petals = {p1, p2};
+
+        Bud bud = new Bud(petals);
+        Rose rose = new Rose("ÌîÿÐîçà", bud);
+
+        rose.printBudColor();  // Öâåò áóòîíà
+        rose.bloom();          // Ðàñöâåñòè
+        System.out.println(rose); // Ñòàòóñ
+        rose.wither();         // Çàâÿòü
+        System.out.println(rose); // Ñòàòóñ ïîñëå óâÿäàíèÿ
+>>>>>>> 3a86768161b340c01f45c2473572f862776e0f50
     }
 }
