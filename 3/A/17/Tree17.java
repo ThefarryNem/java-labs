@@ -2,7 +2,7 @@ import java.util.*;
 
 class Tree17 {
     static class Node {
-        int index;         // индекс вершины
+        int index;         // РёРЅРґРµРєСЃ РІРµСЂС€РёРЅС‹
         List<Node> children;
 
         Node(int index) {
@@ -13,17 +13,17 @@ class Tree17 {
 
     private Node root;
 
-    // Конструктор 1: пустое дерево
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 1: РїСѓСЃС‚РѕРµ РґРµСЂРµРІРѕ
     public Tree() {
         this.root = null;
     }
 
-    // Конструктор 2: дерево с одним корнем
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 2: РґРµСЂРµРІРѕ СЃ РѕРґРЅРёРј РєРѕСЂРЅРµРј
     public Tree(int rootIndex) {
         this.root = new Node(rootIndex);
     }
 
-    // Конструктор 3: дерево из массива смежности (каждый элемент — список детей)
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 3: РґРµСЂРµРІРѕ РёР· РјР°СЃСЃРёРІР° СЃРјРµР¶РЅРѕСЃС‚Рё (РєР°Р¶РґС‹Р№ СЌР»РµРјРµРЅС‚ вЂ” СЃРїРёСЃРѕРє РґРµС‚РµР№)
     public Tree(Map<Integer, List<Integer>> adjacency) {
         if (adjacency.isEmpty()) {
             root = null;
@@ -36,11 +36,11 @@ class Tree17 {
                 nodes.putIfAbsent(child, new Node(child));
             }
         }
-        // считаем, что корень — минимальный индекс
+        // СЃС‡РёС‚Р°РµРј, С‡С‚Рѕ РєРѕСЂРµРЅСЊ вЂ” РјРёРЅРёРјР°Р»СЊРЅС‹Р№ РёРЅРґРµРєСЃ
         int rootIndex = Collections.min(adjacency.keySet());
         root = nodes.get(rootIndex);
 
-        // строим связи
+        // СЃС‚СЂРѕРёРј СЃРІСЏР·Рё
         for (Integer key : adjacency.keySet()) {
             Node parent = nodes.get(key);
             for (Integer child : adjacency.get(key)) {
@@ -49,7 +49,7 @@ class Tree17 {
         }
     }
 
-    // ================= Методы статистики =================
+    // ================= РњРµС‚РѕРґС‹ СЃС‚Р°С‚РёСЃС‚РёРєРё =================
 
     public int countNodes() {
         return dfsCount(root);
@@ -103,24 +103,24 @@ class Tree17 {
         return count;
     }
 
-    // ================= Метод вычисления расстояния =================
+    // ================= РњРµС‚РѕРґ РІС‹С‡РёСЃР»РµРЅРёСЏ СЂР°СЃСЃС‚РѕСЏРЅРёСЏ =================
 
     public int distance(int a, int b) {
-        // путь от корня до каждой вершины
+        // РїСѓС‚СЊ РѕС‚ РєРѕСЂРЅСЏ РґРѕ РєР°Р¶РґРѕР№ РІРµСЂС€РёРЅС‹
         List<Integer> pathA = new ArrayList<>();
         List<Integer> pathB = new ArrayList<>();
 
         if (!findPath(root, a, pathA) || !findPath(root, b, pathB)) {
-            return -1; // если одна из вершин не найдена
+            return -1; // РµСЃР»Рё РѕРґРЅР° РёР· РІРµСЂС€РёРЅ РЅРµ РЅР°Р№РґРµРЅР°
         }
 
-        // ищем общий префикс (наименьший общий предок)
+        // РёС‰РµРј РѕР±С‰РёР№ РїСЂРµС„РёРєСЃ (РЅР°РёРјРµРЅСЊС€РёР№ РѕР±С‰РёР№ РїСЂРµРґРѕРє)
         int i = 0;
         while (i < pathA.size() && i < pathB.size() && pathA.get(i).equals(pathB.get(i))) {
             i++;
         }
 
-        // расстояние = (длина пути до A - i) + (длина пути до B - i)
+        // СЂР°СЃСЃС‚РѕСЏРЅРёРµ = (РґР»РёРЅР° РїСѓС‚Рё РґРѕ A - i) + (РґР»РёРЅР° РїСѓС‚Рё РґРѕ B - i)
         return (pathA.size() - i) + (pathB.size() - i);
     }
 
@@ -138,7 +138,7 @@ class Tree17 {
 
 public class Main {
     public static void main(String[] args) {
-        // Пример: дерево (1 -> {2,3}, 2 -> {4,5})
+        // РџСЂРёРјРµСЂ: РґРµСЂРµРІРѕ (1 -> {2,3}, 2 -> {4,5})
         Map<Integer, List<Integer>> adj = new HashMap<>();
         adj.put(1, Arrays.asList(2, 3));
         adj.put(2, Arrays.asList(4, 5));
@@ -148,11 +148,11 @@ public class Main {
 
         Tree tree = new Tree(adj);
 
-        System.out.println("Общее число вершин: " + tree.countNodes());
-        System.out.println("Нечетные индексы: " + tree.countOddIndices());
-        System.out.println("Четные индексы: " + tree.countEvenIndices());
-        System.out.println("Индексы > 2: " + tree.countGreaterThan(2));
-        System.out.println("Расстояние между 4 и 5: " + tree.distance(4, 5));
-        System.out.println("Расстояние между 4 и 3: " + tree.distance(4, 3));
+        System.out.println("РћР±С‰РµРµ С‡РёСЃР»Рѕ РІРµСЂС€РёРЅ: " + tree.countNodes());
+        System.out.println("РќРµС‡РµС‚РЅС‹Рµ РёРЅРґРµРєСЃС‹: " + tree.countOddIndices());
+        System.out.println("Р§РµС‚РЅС‹Рµ РёРЅРґРµРєСЃС‹: " + tree.countEvenIndices());
+        System.out.println("РРЅРґРµРєСЃС‹ > 2: " + tree.countGreaterThan(2));
+        System.out.println("Р Р°СЃСЃС‚РѕСЏРЅРёРµ РјРµР¶РґСѓ 4 Рё 5: " + tree.distance(4, 5));
+        System.out.println("Р Р°СЃСЃС‚РѕСЏРЅРёРµ РјРµР¶РґСѓ 4 Рё 3: " + tree.distance(4, 3));
     }
 }

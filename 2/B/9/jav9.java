@@ -4,34 +4,34 @@ public class jav9 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Введите количество строк: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє: ");
         int n = sc.nextInt();
-        System.out.print("Введите количество столбцов: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ: ");
         int m = sc.nextInt();
 
         double[][] matrix = new double[n][m];
 
-        System.out.println("Введите элементы матрицы:");
+        System.out.println("Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РјР°С‚СЂРёС†С‹:");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 matrix[i][j] = sc.nextDouble();
             }
         }
 
-        // Обработка каждой строки
+        // РћР±СЂР°Р±РѕС‚РєР° РєР°Р¶РґРѕР№ СЃС‚СЂРѕРєРё
         for (int i = 0; i < n; i++) {
             double sum = 0;
             for (int j = 0; j < m; j++) {
                 sum += matrix[i][j];
             }
-            double avg = sum / m; // среднее арифметическое строки
+            double avg = sum / m; // СЃСЂРµРґРЅРµРµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ СЃС‚СЂРѕРєРё
 
             for (int j = 0; j < m; j++) {
-                matrix[i][j] -= avg; // вычитаем среднее
+                matrix[i][j] -= avg; // РІС‹С‡РёС‚Р°РµРј СЃСЂРµРґРЅРµРµ
             }
         }
 
-        System.out.println("Новая матрица:");
+        System.out.println("РќРѕРІР°СЏ РјР°С‚СЂРёС†Р°:");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 System.out.printf("%8.2f", matrix[i][j]);

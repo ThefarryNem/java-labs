@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Objects;
 
-// Класс Лепесток
+// РљР»Р°СЃСЃ Р›РµРїРµСЃС‚РѕРє
 class Petal {
     private String color;
 
@@ -32,10 +32,10 @@ class Petal {
     }
 }
 
-// Класс Бутон
+// РљР»Р°СЃСЃ Р‘СѓС‚РѕРЅ
 class Bud {
     private Petal[] petals;
-    private boolean isBloomed; // цветет или нет
+    private boolean isBloomed; // С†РІРµС‚РµС‚ РёР»Рё РЅРµС‚
 
     public Bud(Petal[] petals) {
         this.petals = petals;
@@ -53,7 +53,7 @@ class Bud {
     public String getColor() {
         if (petals.length > 0)
             return petals[0].getColor();
-        return "Нет лепестков";
+        return "РќРµС‚ Р»РµРїРµСЃС‚РєРѕРІ";
     }
 
     public boolean isBloomed() {
@@ -83,7 +83,7 @@ class Bud {
     }
 }
 
-// Класс Роза
+// РљР»Р°СЃСЃ Р РѕР·Р°
 class Rose {
     private String name;
     private Bud bud;
@@ -93,21 +93,21 @@ class Rose {
         this.bud = bud;
     }
 
-    // Метод расцвести — принадлежит классу Роза, т.к. управляет бутоном
+    // РњРµС‚РѕРґ СЂР°СЃС†РІРµСЃС‚Рё вЂ” РїСЂРёРЅР°РґР»РµР¶РёС‚ РєР»Р°СЃСЃСѓ Р РѕР·Р°, С‚.Рє. СѓРїСЂР°РІР»СЏРµС‚ Р±СѓС‚РѕРЅРѕРј
     public void bloom() {
         bud.bloom();
-        System.out.println(name + " расцвела!");
+        System.out.println(name + " СЂР°СЃС†РІРµР»Р°!");
     }
 
-    // Метод завять — принадлежит классу Роза
+    // РњРµС‚РѕРґ Р·Р°РІСЏС‚СЊ вЂ” РїСЂРёРЅР°РґР»РµР¶РёС‚ РєР»Р°СЃСЃСѓ Р РѕР·Р°
     public void wither() {
         bud.wither();
-        System.out.println(name + " завяла!");
+        System.out.println(name + " Р·Р°РІСЏР»Р°!");
     }
 
-    // Метод вывести цвет бутона — принадлежит Розе, но использует метод бутона
+    // РњРµС‚РѕРґ РІС‹РІРµСЃС‚Рё С†РІРµС‚ Р±СѓС‚РѕРЅР° вЂ” РїСЂРёРЅР°РґР»РµР¶РёС‚ Р РѕР·Рµ, РЅРѕ РёСЃРїРѕР»СЊР·СѓРµС‚ РјРµС‚РѕРґ Р±СѓС‚РѕРЅР°
     public void printBudColor() {
-        System.out.println("Цвет бутона: " + bud.getColor());
+        System.out.println("Р¦РІРµС‚ Р±СѓС‚РѕРЅР°: " + bud.getColor());
     }
 
     @Override
@@ -130,20 +130,20 @@ class Rose {
     }
 }
 
-// Приложение
+// РџСЂРёР»РѕР¶РµРЅРёРµ
 public class Main {
     public static void main(String[] args) {
-        Petal p1 = new Petal("Красный");
-        Petal p2 = new Petal("Красный");
+        Petal p1 = new Petal("РљСЂР°СЃРЅС‹Р№");
+        Petal p2 = new Petal("РљСЂР°СЃРЅС‹Р№");
         Petal[] petals = {p1, p2};
 
         Bud bud = new Bud(petals);
-        Rose rose = new Rose("МояРоза", bud);
+        Rose rose = new Rose("РњРѕСЏР РѕР·Р°", bud);
 
-        rose.printBudColor();  // Цвет бутона
-        rose.bloom();          // Расцвести
-        System.out.println(rose); // Статус
-        rose.wither();         // Завять
-        System.out.println(rose); // Статус после увядания
+        rose.printBudColor();  // Р¦РІРµС‚ Р±СѓС‚РѕРЅР°
+        rose.bloom();          // Р Р°СЃС†РІРµСЃС‚Рё
+        System.out.println(rose); // РЎС‚Р°С‚СѓСЃ
+        rose.wither();         // Р—Р°РІСЏС‚СЊ
+        System.out.println(rose); // РЎС‚Р°С‚СѓСЃ РїРѕСЃР»Рµ СѓРІСЏРґР°РЅРёСЏ
     }
 }

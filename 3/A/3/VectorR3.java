@@ -9,44 +9,44 @@ class VectorR3 {
         this.z = z;
     }
 
-    // скалярное произведение
+    // СЃРєР°Р»СЏСЂРЅРѕРµ РїСЂРѕРёР·РІРµРґРµРЅРёРµ
     public double dot(VectorR3 v) {
         return x * v.x + y * v.y + z * v.z;
     }
 
-    // векторное произведение
+    // РІРµРєС‚РѕСЂРЅРѕРµ РїСЂРѕРёР·РІРµРґРµРЅРёРµ
     public VectorR3 cross(VectorR3 v) {
         return new VectorR3(
-            y * v.z - z * v.y,
-            z * v.x - x * v.z,
-            x * v.y - y * v.x
+                y * v.z - z * v.y,
+                z * v.x - x * v.z,
+                x * v.y - y * v.x
         );
     }
 
-    // длина вектора
+    // РґР»РёРЅР° РІРµРєС‚РѕСЂР°
     public double length() {
         return Math.sqrt(x * x + y * y + z * z);
     }
 
-    // проверка на ортогональность
+    // РїСЂРѕРІРµСЂРєР° РЅР° РѕСЂС‚РѕРіРѕРЅР°Р»СЊРЅРѕСЃС‚СЊ
     public boolean isOrthogonal(VectorR3 v) {
         return Math.abs(this.dot(v)) < 1e-9;
     }
 
-    // проверка на коллинеарность (если векторное произведение = 0)
+    // РїСЂРѕРІРµСЂРєР° РЅР° РєРѕР»Р»РёРЅРµР°СЂРЅРѕСЃС‚СЊ (РµСЃР»Рё РІРµРєС‚РѕСЂРЅРѕРµ РїСЂРѕРёР·РІРµРґРµРЅРёРµ = 0)
     public boolean isCollinear(VectorR3 v) {
         VectorR3 cross = this.cross(v);
         return Math.abs(cross.x) < 1e-9 &&
-               Math.abs(cross.y) < 1e-9 &&
-               Math.abs(cross.z) < 1e-9;
+                Math.abs(cross.y) < 1e-9 &&
+                Math.abs(cross.z) < 1e-9;
     }
 
-    // сравнение по длине
+    // СЃСЂР°РІРЅРµРЅРёРµ РїРѕ РґР»РёРЅРµ
     public int compareTo(VectorR3 v) {
         return Double.compare(this.length(), v.length());
     }
 
-    // смешанное произведение (для проверки компланарности трёх векторов)
+    // СЃРјРµС€Р°РЅРЅРѕРµ РїСЂРѕРёР·РІРµРґРµРЅРёРµ (РґР»СЏ РїСЂРѕРІРµСЂРєРё РєРѕРјРїР»Р°РЅР°СЂРЅРѕСЃС‚Рё С‚СЂС‘С… РІРµРєС‚РѕСЂРѕРІ)
     public static double mixedProduct(VectorR3 a, VectorR3 b, VectorR3 c) {
         return a.dot(b.cross(c));
     }
@@ -61,12 +61,12 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Введите количество векторов m: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РІРµРєС‚РѕСЂРѕРІ m: ");
         int m = sc.nextInt();
 
         VectorR3[] vectors = new VectorR3[m];
 
-        System.out.println("Введите координаты векторов:");
+        System.out.println("Р’РІРµРґРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ РІРµРєС‚РѕСЂРѕРІ:");
         for (int i = 0; i < m; i++) {
             double x = sc.nextDouble();
             double y = sc.nextDouble();
@@ -74,33 +74,33 @@ public class Main {
             vectors[i] = new VectorR3(x, y, z);
         }
 
-        // Выводим массив
-        System.out.println("\nВведённые векторы:");
+        // Р’С‹РІРѕРґРёРј РјР°СЃСЃРёРІ
+        System.out.println("\nР’РІРµРґС‘РЅРЅС‹Рµ РІРµРєС‚РѕСЂС‹:");
         for (int i = 0; i < m; i++) {
             System.out.println("v" + (i+1) + " = " + vectors[i] + ", |v| = " + vectors[i].length());
         }
 
-        // Проверка для каждой пары
-        System.out.println("\nПроверка пар векторов:");
+        // РџСЂРѕРІРµСЂРєР° РґР»СЏ РєР°Р¶РґРѕР№ РїР°СЂС‹
+        System.out.println("\nРџСЂРѕРІРµСЂРєР° РїР°СЂ РІРµРєС‚РѕСЂРѕРІ:");
         for (int i = 0; i < m; i++) {
             for (int j = i + 1; j < m; j++) {
                 VectorR3 a = vectors[i];
                 VectorR3 b = vectors[j];
-                System.out.println("Пара v" + (i+1) + " и v" + (j+1) + ":");
-                System.out.println("  Ортогональны? " + a.isOrthogonal(b));
-                System.out.println("  Коллинеарны? " + a.isCollinear(b));
+                System.out.println("РџР°СЂР° v" + (i+1) + " Рё v" + (j+1) + ":");
+                System.out.println("  РћСЂС‚РѕРіРѕРЅР°Р»СЊРЅС‹? " + a.isOrthogonal(b));
+                System.out.println("  РљРѕР»Р»РёРЅРµР°СЂРЅС‹? " + a.isCollinear(b));
                 int cmp = a.compareTo(b);
                 if (cmp == 0)
-                    System.out.println("  Векторы равны по длине.");
+                    System.out.println("  Р’РµРєС‚РѕСЂС‹ СЂР°РІРЅС‹ РїРѕ РґР»РёРЅРµ.");
                 else if (cmp < 0)
-                    System.out.println("  v" + (i+1) + " короче, чем v" + (j+1));
+                    System.out.println("  v" + (i+1) + " РєРѕСЂРѕС‡Рµ, С‡РµРј v" + (j+1));
                 else
-                    System.out.println("  v" + (i+1) + " длиннее, чем v" + (j+1));
+                    System.out.println("  v" + (i+1) + " РґР»РёРЅРЅРµРµ, С‡РµРј v" + (j+1));
             }
         }
 
-        // Проверка компланарности троек
-        System.out.println("\nКомпланарные тройки векторов:");
+        // РџСЂРѕРІРµСЂРєР° РєРѕРјРїР»Р°РЅР°СЂРЅРѕСЃС‚Рё С‚СЂРѕРµРє
+        System.out.println("\nРљРѕРјРїР»Р°РЅР°СЂРЅС‹Рµ С‚СЂРѕР№РєРё РІРµРєС‚РѕСЂРѕРІ:");
         boolean found = false;
         for (int i = 0; i < m; i++) {
             for (int j = i + 1; j < m; j++) {
@@ -114,7 +114,7 @@ public class Main {
             }
         }
         if (!found) {
-            System.out.println("  Компланарных троек нет.");
+            System.out.println("  РљРѕРјРїР»Р°РЅР°СЂРЅС‹С… С‚СЂРѕРµРє РЅРµС‚.");
         }
 
         sc.close();
