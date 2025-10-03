@@ -1,10 +1,10 @@
 import java.util.Objects;
 import java.util.Arrays;
 
-// Êëàññ Êîëåñî
+// ĞšĞ»Ğ°ÑÑ ĞšĞ¾Ğ»ĞµÑĞ¾
 class Wheel {
-    private String type;   // òèï êîëåñà (ëåòíåå, çèìíåå è ò.ï.)
-    private int diameter;  // äèàìåòğ
+    private String type;   // Ñ‚Ğ¸Ğ¿ ĞºĞ¾Ğ»ĞµÑĞ° (Ğ»ĞµÑ‚Ğ½ĞµĞµ, Ğ·Ğ¸Ğ¼Ğ½ĞµĞµ Ğ¸ Ñ‚.Ğ¿.)
+    private int diameter;  // Ğ´Ğ¸Ğ°Ğ¼ĞµÑ‚Ñ€
 
     public Wheel(String type, int diameter) {
         this.type = type;
@@ -39,11 +39,11 @@ class Wheel {
     }
 }
 
-// Êëàññ Àâòîìîáèëü
+// ĞšĞ»Ğ°ÑÑ ĞĞ²Ñ‚Ğ¾Ğ¼Ğ¾Ğ±Ğ¸Ğ»ÑŒ
 class Car {
-    private String brand;   // ìàğêà
-    private Wheel[] wheels; // ìàññèâ êîë¸ñ
-    private double fuel;    // óğîâåíü òîïëèâà
+    private String brand;   // Ğ¼Ğ°Ñ€ĞºĞ°
+    private Wheel[] wheels; // Ğ¼Ğ°ÑÑĞ¸Ğ² ĞºĞ¾Ğ»Ñ‘Ñ
+    private double fuel;    // ÑƒÑ€Ğ¾Ğ²ĞµĞ½ÑŒ Ñ‚Ğ¾Ğ¿Ğ»Ğ¸Ğ²Ğ°
 
     public Car(String brand, Wheel wheelTemplate, int wheelCount) {
         this.brand = brand;
@@ -54,35 +54,35 @@ class Car {
         this.fuel = 0.0;
     }
 
-    // ìåòîä åõàòü
+    // Ğ¼ĞµÑ‚Ğ¾Ğ´ ĞµÑ…Ğ°Ñ‚ÑŒ
     public void drive() {
         if (fuel > 0) {
-            System.out.println(brand + " åäåò!");
+            System.out.println(brand + " ĞµĞ´ĞµÑ‚!");
             fuel -= 1.0;
         } else {
-            System.out.println("Íåò òîïëèâà! Íóæíî çàïğàâèòüñÿ.");
+            System.out.println("ĞĞµÑ‚ Ñ‚Ğ¾Ğ¿Ğ»Ğ¸Ğ²Ğ°! ĞÑƒĞ¶Ğ½Ğ¾ Ğ·Ğ°Ğ¿Ñ€Ğ°Ğ²Ğ¸Ñ‚ÑŒÑÑ.");
         }
     }
 
-    // ìåòîä çàïğàâëÿòüñÿ
+    // Ğ¼ĞµÑ‚Ğ¾Ğ´ Ğ·Ğ°Ğ¿Ñ€Ğ°Ğ²Ğ»ÑÑ‚ÑŒÑÑ
     public void refuel(double amount) {
         fuel += amount;
-        System.out.println("Ìàøèíà " + brand + " çàïğàâëåíà. Òîïëèâî = " + fuel);
+        System.out.println("ĞœĞ°ÑˆĞ¸Ğ½Ğ° " + brand + " Ğ·Ğ°Ğ¿Ñ€Ğ°Ğ²Ğ»ĞµĞ½Ğ°. Ğ¢Ğ¾Ğ¿Ğ»Ğ¸Ğ²Ğ¾ = " + fuel);
     }
 
-    // ìåòîä ìåíÿòü êîëåñî
+    // Ğ¼ĞµÑ‚Ğ¾Ğ´ Ğ¼ĞµĞ½ÑÑ‚ÑŒ ĞºĞ¾Ğ»ĞµÑĞ¾
     public void changeWheel(int index, Wheel newWheel) {
         if (index >= 0 && index < wheels.length) {
             wheels[index] = newWheel;
-            System.out.println("Êîëåñî #" + (index + 1) + " çàìåíåíî íà " + newWheel);
+            System.out.println("ĞšĞ¾Ğ»ĞµÑĞ¾ #" + (index + 1) + " Ğ·Ğ°Ğ¼ĞµĞ½ĞµĞ½Ğ¾ Ğ½Ğ° " + newWheel);
         } else {
-            System.out.println("Íåâåğíûé èíäåêñ êîëåñà!");
+            System.out.println("ĞĞµĞ²ĞµÑ€Ğ½Ñ‹Ğ¹ Ğ¸Ğ½Ğ´ĞµĞºÑ ĞºĞ¾Ğ»ĞµÑĞ°!");
         }
     }
 
-    // âûâåñòè ìàğêó
+    // Ğ²Ñ‹Ğ²ĞµÑÑ‚Ğ¸ Ğ¼Ğ°Ñ€ĞºÑƒ
     public void printBrand() {
-        System.out.println("Ìàğêà àâòîìîáèëÿ: " + brand);
+        System.out.println("ĞœĞ°Ñ€ĞºĞ° Ğ°Ğ²Ñ‚Ğ¾Ğ¼Ğ¾Ğ±Ğ¸Ğ»Ñ: " + brand);
     }
 
     @Override
@@ -106,18 +106,18 @@ class Car {
     }
 }
 
-// Ïğèëîæåíèå
+// ĞŸÑ€Ğ¸Ğ»Ğ¾Ğ¶ĞµĞ½Ğ¸Ğµ
 public class Main {
     public static void main(String[] args) {
-        Wheel summerWheel = new Wheel("ëåòíåå", 16);
+        Wheel summerWheel = new Wheel("Ğ»ĞµÑ‚Ğ½ĞµĞµ", 16);
         Car car = new Car("Toyota", summerWheel, 4);
 
-        car.printBrand();             // âûâåñòè ìàğêó
-        car.drive();                  // ïğîáóåì åõàòü áåç òîïëèâà
-        car.refuel(10);               // çàïğàâëÿåì
-        car.drive();                  // åäåì
-        car.changeWheel(2, new Wheel("çèìíåå", 16)); // ìåíÿåì êîëåñî
+        car.printBrand();             // Ğ²Ñ‹Ğ²ĞµÑÑ‚Ğ¸ Ğ¼Ğ°Ñ€ĞºÑƒ
+        car.drive();                  // Ğ¿Ñ€Ğ¾Ğ±ÑƒĞµĞ¼ ĞµÑ…Ğ°Ñ‚ÑŒ Ğ±ĞµĞ· Ñ‚Ğ¾Ğ¿Ğ»Ğ¸Ğ²Ğ°
+        car.refuel(10);               // Ğ·Ğ°Ğ¿Ñ€Ğ°Ğ²Ğ»ÑĞµĞ¼
+        car.drive();                  // ĞµĞ´ĞµĞ¼
+        car.changeWheel(2, new Wheel("Ğ·Ğ¸Ğ¼Ğ½ĞµĞµ", 16)); // Ğ¼ĞµĞ½ÑĞµĞ¼ ĞºĞ¾Ğ»ĞµÑĞ¾
 
-        System.out.println(car);      // ïå÷àòü ñîñòîÿíèÿ àâòî
+        System.out.println(car);      // Ğ¿ĞµÑ‡Ğ°Ñ‚ÑŒ ÑĞ¾ÑÑ‚Ğ¾ÑĞ½Ğ¸Ñ Ğ°Ğ²Ñ‚Ğ¾
     }
 }
